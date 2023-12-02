@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #ffecf2; /* Light pink background */
+        }
+
+        #card {
+            position: relative;
+            width: 300px;
+            height: 400px;
+            background-color: #fff;
+            border-radius: 15px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+
+        #heart-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100%;
+        }
+
+        #heart {
+            font-size: 80px;
+            color: #e74c3c;
+            transition: color 0.5s;
+            cursor: pointer;
+            animation: heartbeat 1.5s infinite;
+        }
+
+        #message {
+            text-align: center;
+            display: none;
+        }
+
+        #message p {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-size: 18px;
+            color: #555;
+            margin: 0;
+        }
+
+        #illustration {
+            max-width: 100%;
+            height: auto;
+            margin-top: 20px;
+            animation: bounce 2s infinite;
+        }
+
+        @keyframes heartbeat {
+            0%, 100% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.2);
+            }
+        }
+
+        @keyframes bounce {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+
+        #heart:hover {
+            color: #f39c12;
+        }
+
+        #heart.active {
+            color: #f39c12;
+        }
+    </style>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const heart = document.getElementById("heart");
+            const message = document.getElementById("message");
+
+            heart.addEventListener("click", function () {
+                heart.classList.add("active");
+                message.style.display = "block";
+                message.innerHTML = "<p>I know I piss you off sometimes but I miss you.</p>";
+            });
+        });
+    </script>
+    <title>Cute Card for My Best Friend</title>
+</head>
+<body>
+    <div id="card">
+        <div id="heart-container">
+            <span id="heart">❤️</span>
+        </div>
+        <div id="message">
+            <p>Click on the heart to reveal a message!</p>
+            <img id="illustration" src="https://placekitten.com/300/200" alt="Cute Illustration">
+        </div>
+    </div>
+</body>
+</html>
